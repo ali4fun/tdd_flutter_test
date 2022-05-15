@@ -38,14 +38,14 @@ dependencies:
   flutter_bloc : ^0.21.0
   equatable: ^2.0.0
   dartz : ^0.10.1
-  connectivity : ^1.0.0
-  http : ^0.13.0
-  shared_preferences : ^0.5.4
+  data_connection_checker : ^0.3.4
+  http : ^0.13.4
+  shared_preferences : ^2.0.15
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^5.0.15
+  mockito: ^5.0.16
   build_runner: ^2.1.2
 
   flutter_lints: ^1.0.0
