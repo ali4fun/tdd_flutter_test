@@ -5,7 +5,6 @@ import 'package:dartz/dartz.dart';
 import 'package:tddapp/feature/number_trivia/data/models/number_trivia_model.dart';
 
 import '../../../../core/error/exceptions.dart';
-import '../../../../core/error/failures.dart';
 import '../../domain/entities/number_trivia.dart';
 
 import 'package:http/http.dart' as http;
@@ -17,7 +16,7 @@ class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
 
   Future<NumberTriviaModel> _getTriviaFromUrl(String url) async {
     final response = await client
-        .get(Uri.parse(url), headers: {'Content-Type': 'application/json'});
+        .get(Uri.parse(url));
     if (response.statusCode == 200) {
       return NumberTriviaModel.fromJson(json.decode(response.body));
     } else {

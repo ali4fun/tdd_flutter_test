@@ -1,17 +1,15 @@
 import 'dart:convert';
-import 'dart:developer';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tddapp/core/error/exceptions.dart';
 import 'package:tddapp/feature/number_trivia/data/datasource/number_trivia_local_data_source.dart';
 import 'package:tddapp/feature/number_trivia/data/models/number_trivia_model.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
-
-class MockSharedPreferences extends Mock implements SharedPreferences {}
+import 'number_trivia_local_data_source_test.mocks.dart';
 
 @GenerateMocks([
   SharedPreferences
@@ -58,15 +56,18 @@ void main() {
 
   group('cacheNumberTrivia', () {
     final tNumberTriviaModel =
-        NumberTriviaModel(number: 1, text: 'Test Trivia');
+        NumberTriviaModel(text: 'Test Trivia',number: 1);
     test('should call SharedPreferences to cache the data', ()  {
+      //setup
+      when(dataSource.cacheNumberTrivia(tNumberTriviaModel))
+          .thenAnswer((_) async =>
+              true);
       //act
-      debugger();
       dataSource.cacheNumberTrivia(tNumberTriviaModel);
       //assert
-      // final expectedJsonString = json.encode(tNumberTriviaModel.toJson());
-      // verify(mockSharedPreferences.setString(
-      //     'CACHED_NUMBER_TRIVIA', expectedJsonString));
+      final expectedJsonString = json.encode(tNumberTriviaModel.toJson());
+      verify(mockSharedPreferences.setString(
+          'CACHED_NUMBER_TRIVIA', expectedJsonString));
     });
   });
 }
