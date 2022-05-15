@@ -111,6 +111,10 @@ class MockClient extends _i1.Mock implements _i4.Client {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockClientForTest extends _i1.Mock implements _i4.Client {
+  MockClientForTest() {
+    _i1.throwOnMissingStub(this);
+  }
+
   @override
   _i5.Future<_i2.Response> head(Uri? url, {Map<String, String>? headers}) =>
       (super.noSuchMethod(Invocation.method(#head, [url], {#headers: headers}),
