@@ -28,15 +28,7 @@ class NumberTriviaLocalDataSourceImpl implements NumberTriviaLocalDataSource {
       throw CacheException();
     }
   }
-
-  // Future<bool> isFirst = await getIsFirstTime();
-
-// Future<bool> getIsFirstTime() async {
-//   final prefs = await SharedPreferences.getInstance();
-//   final isFirst = prefs.getBool('isFirstInstall') ?? false;
-//   print("get value is:>> "+isFirst.toString());
-//   return isFirst;
-
+  
   @override
   Future<bool>? cacheNumberTrivia(NumberTriviaModel triviaToCache) {
     return sharedPreferences.setString(

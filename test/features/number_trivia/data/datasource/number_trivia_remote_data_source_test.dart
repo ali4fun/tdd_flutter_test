@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:developer';
+import 'dart:ffi';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -82,7 +84,7 @@ void main() {
 
     test(
       '''should perform a GET request on a URL with number
-       being the endpoint and with application/json header''',
+       being the endpoint and with''',
       () async {
         // arrange
         setUpMockHttpClientSuccess200();

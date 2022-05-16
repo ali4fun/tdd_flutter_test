@@ -137,14 +137,14 @@ void main() {
     final tNumberTriviaModel =
         NumberTriviaModel(number: 123, text: 'test trivia');
     final NumberTrivia tNumberTrivia = tNumberTriviaModel;
-    // test('should check if the device is online', () async {
-    //   //arrange
-    //   when(mockNetworkInfo?.isConnected).thenAnswer((_) async => true);
-    //   //act
-    //   repository?.getRandomNumberTrivia();
-    //   //assert
-    //   verify(mockNetworkInfo?.isConnected);
-    // });
+    test('should check if the device is online', () async {
+      //arrange
+      when(mockNetworkInfo?.isConnected).thenAnswer((_) async => true);
+      //act
+      repository?.getRandomNumberTrivia();
+      //assert
+      verify(mockNetworkInfo?.isConnected);
+    });
 
     runTestsOnline(() {
       test(

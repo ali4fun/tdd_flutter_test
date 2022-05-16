@@ -1,7 +1,7 @@
 
-import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tddapp/core/platform/network_info.dart';
 import 'package:tddapp/feature/number_trivia/presentation/bloc/number_trivia_bloc.dart';
@@ -51,6 +51,6 @@ Future<void> init() async {
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => http.Client());
   // sl.registerLazySingleton(() => InternetConnectionChecker());
-    sl.registerLazySingleton(() => DataConnectionChecker());
+    sl.registerLazySingleton(() => InternetConnectionChecker());
 
 }
